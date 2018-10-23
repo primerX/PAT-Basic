@@ -1,21 +1,19 @@
 #include<cstdio>
 
-struct money{
-	int sickle, galleon, kunt;
-	int sum;		//全部换成kunt 
-}p, a, ans;
+const int Galleon = 17 * 29;	//1个Galleon 兑换 17*29个Kunt
+const int Sickle = 29;		//1个 Sickle 兑换 29 个 Kunt
 
 int main()
 {
-	scanf("%d.%d.%d %d.%d.%d", &p.galleon,&p.sickle, &p.kunt, &a.galleon, &a.sickle, &a.kunt);
-	p.sum = p.galleon*17*29 + p.sickle*29 + p.kunt;
-	a.sum = a.galleon*17*29 + a.sickle*29 + a.kunt; 
-	ans.sum = a.sum - p.sum;
-	int temp = 17 * 29;
-	if(ans.sum < 0) {
+	int a1, a2, a3, b1, b2, b3;
+	scanf("%d.%d.%d %d.%d.%d", &a1, &a2, &a3, &b1, &b2, &b3);
+	int price = a1*Galleon + a2*Sickle + a3;
+	int money = b1*Galleon + b2*Sickle + b3;
+	int changed = money - price;	//找零的前
+	if(changed < 0){
 		printf("-");
-		ans.sum = -ans.sum;
-	}
-	printf("%d.%d.%d", ans.sum/temp, ans.sum%temp/29, ans.sum%29);
+		changed = -changed;
+	} 
+	printf("%d.%d.%d", changed/Galleon, changed%Galleon/Sickle, changed%Sickle);
 	return 0;
-}
+ } 
