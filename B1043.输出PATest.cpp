@@ -11,12 +11,12 @@ int main()
 	int cnt = 0;	//记录总个数 
 	getline(cin, str);
 	for(int i=0; i<str.length(); i++){
-		if(str[i] == 'P') hashTable[0]++, cnt++;
-		if(str[i] == 'A') hashTable[1]++, cnt++;
-		if(str[i] == 'T') hashTable[2]++, cnt++;
-		if(str[i] == 'e') hashTable[3]++, cnt++;
-		if(str[i] == 's') hashTable[4]++, cnt++;
-		if(str[i] == 't') hashTable[5]++, cnt++;
+		for(int j=0; j<6; j++){
+			if(str[i] == aim[j]){
+				hashTable[j]++;
+				cnt++;		//个数加一 
+			}
+		}
 	}
 	while(cnt > 0){
 		for(int i=0; i<6; i++){
